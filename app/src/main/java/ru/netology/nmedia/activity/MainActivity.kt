@@ -34,12 +34,7 @@ class MainActivity : AppCompatActivity() {
                 published.text = post.published
                 likes.text = getShortSrt(post.likes)
                 repost.text = getShortSrt(post.reposts)
-                heart.setImageResource(R.drawable.ic_heart)
-            }
-
-            binding.heart.setOnClickListener {
-                viewModel.like()
-                binding.likes.text = getShortSrt(post.likes)
+//                heart.setImageResource(R.drawable.ic_heart)
                 binding.heart.setImageResource(
                     if (post.likeByMe) {
                         R.drawable.ic_red_heart
@@ -48,13 +43,18 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
-
-            binding.share.setOnClickListener {
-                viewModel.repost()
-                binding.repost.text = getShortSrt(post.reposts)
-            }
         }
 
+        binding.heart.setOnClickListener {
+            viewModel.like()
+//            binding.likes.text = getShortSrt(post.likes)
+
+        }
+
+        binding.share.setOnClickListener {
+            viewModel.repost()
+//            binding.repost.text = getShortSrt(post.reposts)
+        }
 
 //        findViewById<ImageButton>(R.id.heart).setOnClickListener {
 //            if (it !is ImageButton) {
